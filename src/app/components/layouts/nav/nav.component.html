@@ -1,0 +1,35 @@
+<nav class="container navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01"
+            aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+            <a class="navbar-brand" [routerLink]="['home']">Web service</a>
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" [routerLink]="['home']"><span class="i-home"></span>
+                        Inicio</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" [routerLink]="['pelicula']"><span class=" i-video"></span>
+                        Películas</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" [routerLink]="['divisa']"><span class=" i-paid"></span>
+                        Divisas</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" [routerLink]="['traductor']"><span class=" i-translate"></span>
+                        Traductor</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" [routerLink]="['musica']" target="_blank"><span class="i-table"></span>
+                        Música</a>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+</nav>
