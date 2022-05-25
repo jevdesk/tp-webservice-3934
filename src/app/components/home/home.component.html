@@ -1,1 +1,101 @@
-<p>home works!</p>
+<main>
+
+    <div class="text-white bg-dark p-5">
+        <div class="text-center m-2">
+            <h3>{{practicos[4].titulo}}</h3>
+        </div>
+        <div>
+            <p>{{practicos[4].detalle[0]}}</p>
+            <p>{{practicos[4].detalle[1]}}</p>
+        </div>
+    </div>
+    <div class="accordion accordion-flush" id="accordionFlushExample">
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="flush-headingOne">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                    {{enunciados[0].titulo}}
+                </button>
+            </h2>
+            <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne"
+                data-bs-parent="#accordionFlushExample">
+                <div class="accordion-body">{{enunciados[0].detalle[0]}}
+                    <div class="d-grid gap-2 col-6 mx-auto">
+                        <button class="btn btn-primary" type="button" [routerLink]="['../traductor']">
+                            {{enunciados[0].titulo}}</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="flush-headingTwo">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                    {{enunciados[1].titulo}}
+                </button>
+            </h2>
+            <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo"
+                data-bs-parent="#accordionFlushExample">
+                <div class="accordion-body">{{enunciados[1].detalle[0]}}
+                    <ol>
+                        <li>
+                            {{enunciados[1].detalle[1]}}
+                        </li>
+                    </ol>
+                    <div class="d-grid gap-2 col-6 mx-auto">
+
+                        <button class="btn btn-primary" type="button"
+                            [routerLink]="['../pelicula']">{{enunciados[1].titulo}}</button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="flush-headingthree">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#flush-collapsethree" aria-expanded="false" aria-controls="flush-collapsethree">
+                    {{enunciados[2].titulo}}
+                </button>
+            </h2>
+            <div id="flush-collapsethree" class="accordion-collapse collapse" aria-labelledby="flush-headingthree"
+                data-bs-parent="#accordionFlushExample">
+                <div class="accordion-body">{{enunciados[2].detalle[0]}}
+                    <ol>
+                        <li>{{enunciados[2].detalle[1]}}</li>
+                        <li>{{enunciados[2].detalle[2]}}</li>
+                    </ol>
+
+                    <div class="d-grid gap-2 col-6 mx-auto">
+                        <button class="btn btn-primary" type="button"
+                            [routerLink]="['../divisa']">{{enunciados[2].titulo}}</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="flush-headingfour">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#flush-collapsefour" aria-expanded="false" aria-controls="flush-collapsefour">
+                    {{enunciados[3].titulo}}
+                </button>
+            </h2>
+            <div id="flush-collapsefour" class="accordion-collapse collapse" aria-labelledby="flush-headingfour"
+                data-bs-parent="#accordionFlushExample">
+                <div class="accordion-body">{{enunciados[3].detalle[0]}}
+                    <ol>
+                        <li>{{enunciados[3].detalle[1]}}</li>
+                        <li>{{enunciados[3].detalle[2]}}</li>
+                        <li>{{enunciados[3].detalle[3]}}</li>
+                        <li>{{enunciados[3].detalle[4]}}</li>
+                    </ol>
+                    <div class="d-grid gap-2 col-6 mx-auto">
+                        <button class="btn btn-primary" type="button"
+                            [routerLink]="['../musica']">{{enunciados[0].titulo}}</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</main>
