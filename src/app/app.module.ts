@@ -11,6 +11,14 @@ import { TraductorComponent } from './components/traductor/traductor.component';
 import { PeliculasComponent } from './components/peliculas/peliculas.component';
 import { DivisasComponent } from './components/divisas/divisas.component';
 import { MusicaComponent } from './components/musica/musica.component';
+import {
+  HttpClient,
+  HttpClientModule,
+  HttpHeaders,
+  HttpParams,
+} from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ClipboardModule } from 'ngx-clipboard';
 
 @NgModule({
   declarations: [
@@ -22,13 +30,18 @@ import { MusicaComponent } from './components/musica/musica.component';
     TraductorComponent,
     PeliculasComponent,
     DivisasComponent,
-    MusicaComponent
+    MusicaComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
+
+    ClipboardModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

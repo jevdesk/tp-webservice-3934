@@ -1,78 +1,89 @@
 <main class="container bg-info">
 
     <div class="card-body row">
-
-        <div class="col-md-3 col-sm-6 col-6 d-grid">
-            <button type="button" class="btn btn-light btn-outline-secondary"><img src="assets/recursos/ar.png"
-                    alt="español">
+        <h3 class="opacity-50" *ngIf="!source">Seleccione idioma origen</h3>
+        <div class=" col-md-3 col-sm-6 col-6 d-grid">
+            <button [disabled]="traduccion||texto" type="button" (click)="esIdioma('es')"
+                class="btn btn-light btn-outline-secondary"><img src="assets/recursos/ar.png" alt="español">
                 Español</button>
         </div>
         <div class="col-md-3 col-sm-6 col-6 d-grid">
-            <button type="button" class="btn btn-light btn-outline-secondary"><img src="assets/recursos/br.png"
-                    alt="Portugués"> Portugués</button>
+            <button [disabled]="traduccion||texto" type="button" (click)="esIdioma('pt')"
+                class="btn btn-light btn-outline-secondary"><img src="assets/recursos/br.png" alt="Portugués">
+                Portugués</button>
         </div>
         <div class="col-md-3 col-sm-6 col-6 d-grid">
-            <button type="button" class="btn btn-light btn-outline-secondary"><img src="assets/recursos/it.png"
-                    alt="Italiano">
+            <button [disabled]="traduccion||texto" type="button" (click)="esIdioma('it')"
+                class="btn btn-light btn-outline-secondary"><img src="assets/recursos/it.png" alt="Italiano">
                 Italiano</button>
         </div>
         <div class="col-md-3 col-sm-6 col-6 d-grid">
-            <button type="button" class="btn btn-light btn-outline-secondary"><img src="assets/recursos/ch.png"
-                    alt="Chino">
+            <button [disabled]="traduccion||texto" type="button" (click)="esIdioma('ch')"
+                class="btn btn-light btn-outline-secondary"><img src="assets/recursos/ch.png" alt="Chino">
                 Chino</button>
         </div>
     </div>
     <div class="card-body">
-        <div class="form-floating">
-            <textarea class="form-control h-100" placeholder="Leave a comment here" id="floatingTextarea2"></textarea>
-            <label for="floatingTextarea2">Texto a traducir:</label>
+        <div class="form-floating" *ngIf="source">
+            <textarea [(ngModel)]="texto" name="texto" class="form-control h-100" placeholder="Leave a comment here"
+                id="floatingTextarea2"></textarea>
+            <label for="floatingTextarea2">Escriba el texto a traducir de {{source}} a {{target}}:</label>
         </div>
-    </div>
-    <div class="card-body  row">
 
+    </div>
+    <div class="card-body row" *ngIf="texto">
+        <h3 class="opacity-50" *ngIf="!target">Seleccione idioma destino</h3>
         <div class="col-md-3 col-sm-6 col-6 d-grid">
-            <button type="button" class="btn btn-light btn-outline-secondary"><img src="assets/recursos/ar.png"
-                    alt="español">
+            <button [disabled]="traduccion" type="button" class="btn btn-light btn-outline-secondary"
+                (click)="otroIdioma('es')"><img src="assets/recursos/ar.png" alt="español">
                 Español</button>
         </div>
         <div class="col-md-3 col-sm-6 col-6 d-grid">
-            <button type="button" class="btn btn-light btn-outline-secondary"><img src="assets/recursos/br.png"
-                    alt="Portugués"> Portugués</button>
+            <button [disabled]="traduccion" type="button" class="btn btn-light btn-outline-secondary"
+                (click)="otroIdioma('pt')"><img src="assets/recursos/br.png" alt="Portugués"> Portugués</button>
         </div>
         <div class="col-md-3 col-sm-6 col-6 d-grid">
-            <button type="button" class="btn btn-light btn-outline-secondary"><img src="assets/recursos/it.png"
-                    alt="Italiano">
+            <button [disabled]="traduccion" type="button" class="btn btn-light btn-outline-secondary"
+                (click)="otroIdioma('it')"><img src="assets/recursos/it.png" alt="Italiano">
                 Italiano</button>
         </div>
         <div class="col-md-3 col-sm-6 col-6 d-grid">
-            <button type="button" class="btn btn-light btn-outline-secondary"><img src="assets/recursos/ch.png"
-                    alt="Chino">
+            <button [disabled]="traduccion" type="button" class="btn btn-light btn-outline-secondary"
+                (click)="otroIdioma('ch')"><img src="assets/recursos/ch.png" alt="Chino">
                 Chino</button>
         </div>
-        <div class="col-md-12 col-sm-12 col-12 d-grid">
-            <button class="btn btn-primary " type="button"><span class="i-translate"></span> Traducir</button>
+
+        <h3 class="opacity-50 mt-3" *ngIf="target&&!traduccion">Precione para confirmar</h3>
+        <div class="col-md-12 col-sm-12 col-12 d-grid" *ngIf="target">
+            <button [disabled]="traduccion" class=" btn btn-primary " type=" button" (click)="traducir()"><span
+                    class="i-translate"></span>
+                Traducir</button>
         </div>
 
-
+        {{mensaje}}
     </div>
     <div class="card-body">
-        <div class="form-floating">
-            <textarea class="form-control h-100" placeholder="Leave a comment here" id="floatingTextarea1"></textarea>
-            <label for="floatingTextarea1">Su Tracucción:</label>
+        <div class="form-floating" *ngIf="traduccion">
+            <textarea [(ngModel)]="traduccion" name="traduccion" class="form-control h-100"
+                placeholder="Leave a comment here" id="traduccion">{{traduccion}}</textarea>
+            <label for="traduccion">Su Tracucción al {{target}}:</label>
         </div>
     </div>
     <div class="card-body d-flex row">
         <div class="col-4 text-center">
-            <button type="button" class="btn btn-light btn-outline-secondary"><span class="i-copy"></span>
+            <button [disabled]="!traduccion" (click)="copyText()" type="button"
+                class="btn btn-light btn-outline-secondary"><span class="i-copy"></span>
                 Copiar</button>
         </div>
 
         <div class="col-4 text-center">
-            <button type="button" class="btn btn-light btn-outline-secondary"><span class="i-delete"></span>
+            <button [disabled]="!source" type="button" class="btn btn-light btn-outline-secondary"
+                (click)="borrar()"><span class="i-delete"></span>
                 Borrar</button>
         </div>
         <div class="col-4 text-center">
-            <button type="button" class="btn btn-light btn-outline-secondary"><span class="i-exit"></span>
+            <button type="button" class="btn btn-light btn-outline-secondary" [routerLink]="['home']"><span
+                    class="i-exit"></span>
                 Salir</button>
         </div>
     </div>

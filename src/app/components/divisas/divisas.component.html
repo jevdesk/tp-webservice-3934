@@ -59,34 +59,35 @@
                         <label for="txtDe">Cantidad:</label>
                         <div class="input-group">
                             <span class="input-group-text">$</span>
-                            <input type="number" class="form-control" aria-label="Cantidad (al dólar más cercano)">
+                            <input type="number" [(ngModel)]="value" name="value" class="form-control">
 
                         </div>
+                        {{value}}
                         <div>
                             <label for="txtDe">De</label>
 
-                            <select class="form-control">
-                                <option>Argentina</option>
-                                <option>Brasil</option>
-                                <option>Bolivia</option>
-                                <option>Chile</option>
+                            <select class="form-control" [(ngModel)]="from" name="from">
+                                <option *ngFor="let i of data" name="from">{{i.currency_code!}}</option>
+
                             </select>
+                            {{from}}
                         </div>
+
                         <div>
                             <label for="txtDe">A</label>
 
-                            <select class="form-control">
-                                <option>Chile</option>
-                                <option>Argentina</option>
-                                <option>Brasil</option>
-                                <option>Bolivia</option>
+                            <select class="form-control" [(ngModel)]="to" name="to">
+                                <option *ngFor="let i of data" name="to">{{i.currency_code}}</option>
+
                             </select>
+
                         </div>
                         <label for="txtDe">Son:</label>
                         <div class="input-group">
 
                             <span class=" input-group-text">$</span>
-                            <input type="number" class="form-control" aria-label="Cantidad (al dólar más cercano)">
+                            <label class="form-control">{{convertido}}</label>
+
 
                         </div>
 
