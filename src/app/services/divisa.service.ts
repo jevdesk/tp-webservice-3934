@@ -18,11 +18,7 @@ export class DivisaService {
     const _url = 'https://currencyscoop.p.rapidapi.com/currencies';
     return this._http.get(_url, httpOptions);
   }
-  public translateText(
-    to: string,
-    from: string,
-    value: number
-  ): Observable<any> {
+  public convertir(to: string, from: string, value: number): Observable<any> {
     const httpOptions = {
       headers: new HttpHeaders({
         'content-type': 'application/x-www-form-urlencoded',

@@ -22,9 +22,19 @@ export class DivisasComponent implements OnInit {
   listar() {
     this.divisaService.getlist().subscribe(
       (result) => {
-        console.log(result.response.fiats.ARS.currency_code);
         this.monedas = result.response.fiats;
         this.data = Object.values(this.monedas);
+      },
+      (error) => {
+        //this.mensaje = 'error no se pudo conectar al servidor';
+      }
+    );
+  }
+  convertir() {
+    this.divisaService.convertir(this.to, this.from, this.value).subscribe(
+      (result) => {
+        console.log(result);
+        //this.convertido = result.;
       },
       (error) => {
         //this.mensaje = 'error no se pudo conectar al servidor';
