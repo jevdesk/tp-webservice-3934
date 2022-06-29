@@ -4,20 +4,21 @@ import { DivisasComponent } from './components/divisas/divisas.component';
 import { HomeComponent } from './components/home/home.component';
 import { MusicaComponent } from './components/musica/musica.component';
 import { PeliculasComponent } from './components/peliculas/peliculas.component';
+import { QrappComponent } from './components/qrapp/qrapp.component';
 import { TraductorComponent } from './components/traductor/traductor.component';
 
 const routes: Routes = [
-{ path: 'home', component: HomeComponent },
-{ path: 'pelicula', component: PeliculasComponent },
-{ path: 'traductor', component: TraductorComponent },
-{ path: 'divisa', component: DivisasComponent },
-{ path: 'musica', component: MusicaComponent },
-
-{ path: '**', pathMatch:'full',redirectTo:'home' }
+  { path: 'home', component: HomeComponent },
+  { path: 'pelicula', component: PeliculasComponent },
+  { path: 'traductor', component: TraductorComponent },
+  { path: 'divisa', component: DivisasComponent },
+  { path: 'musica', component: MusicaComponent },
+  { path: 'qrapp', component: QrappComponent },
+  { path: '**', pathMatch: 'full', redirectTo: 'home' },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

@@ -19,6 +19,7 @@ import {
 } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ClipboardModule } from 'ngx-clipboard';
+import { QrappComponent } from './components/qrapp/qrapp.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { ClipboardModule } from 'ngx-clipboard';
     PeliculasComponent,
     DivisasComponent,
     MusicaComponent,
+    QrappComponent,
   ],
   imports: [
     BrowserModule,

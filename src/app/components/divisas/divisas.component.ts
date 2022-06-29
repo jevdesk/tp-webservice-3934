@@ -34,7 +34,7 @@ export class DivisasComponent implements OnInit {
     this.divisaService.convertir(this.to, this.from, this.value).subscribe(
       (result) => {
         console.log(result);
-        //this.convertido = result.;
+        this.convertido = result.result;
       },
       (error) => {
         //this.mensaje = 'error no se pudo conectar al servidor';
